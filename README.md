@@ -1,4 +1,4 @@
-# Hola, dejo una guia con todo el contenido desarrollado por WND para salesforce, todas las recetas y componentes refentes a stack de healthcare para uso libre, ¡buena caza!
+# Hola, dejo las recetas con todo el contenido desarrollado por WND para salesforce, todas las recetas y componentes refentes a stack de healthcare para uso libre, ¡buena caza!
 
 # Documentación de Componentes - Salesforce
 
