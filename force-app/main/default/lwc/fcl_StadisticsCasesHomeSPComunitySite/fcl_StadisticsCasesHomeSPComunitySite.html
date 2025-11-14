@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Mis Estadísticas" icon-name="standard:case">
+        <div class="slds-p-around_medium">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Cargando" size="small"></lightning-spinner>
+            </template>
+            
+            <template if:false={isLoading}>
+                <template if:true={error}>
+                    <div class="slds-text-color_error">
+                        Error al cargar estadísticas: {error.body.message}
+                    </div>
+                </template>
+                
+                <template if:false={error}>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                                <div class="slds-text-heading_large">{myCases}</div>
+                                <div class="slds-text-title">Mis casos abiertos</div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                                <div class="slds-text-heading_large">{areaCases}</div>
+                                <div class="slds-text-title">Casos abiertos en mi área</div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            
+            <div class="slds-text-align_right slds-m-top_small">
+                <lightning-button-icon 
+                    icon-name="utility:refresh" 
+                    alternative-text="Actualizar" 
+                    title="Actualizar" 
+                    onclick={refreshData}>
+                </lightning-button-icon>
+            </div>
+        </div>
+    </lightning-card>
+</template>

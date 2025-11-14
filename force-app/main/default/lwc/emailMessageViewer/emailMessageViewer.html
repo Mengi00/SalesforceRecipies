@@ -1,0 +1,120 @@
+<template>
+    <lightning-card >
+      <article class="emailuiEmailMessage">
+           <p style="color: gray; font-size: 13px;">
+                ⚠️ Las imágenes han sido bloqueadas por seguridad.
+            </p>
+        <header class="emailMessageHeader slds-clearfix slds-m-bottom_medium">
+            <div class="slds-float_right">
+                <div class="dateContainer">
+                    <span class="uiOutputDate runtime_sales_activitiesTaskDueDate noDate">{taskDueDate}</span>
+                </div>
+            </div>
+
+            <div class="fromThumbnail slds-float_left">
+                <lightning-icon icon-name="utility:user"  size="small" class="slds-icon-utility-user contactPicture slds-avatar slds-avatar--medium slds-button__icon slds-icon_container forceIcon" alternative-text="Info"></lightning-icon>
+            </div>
+
+            <div class="messageDetail">
+                <div class="fromDetail lightTextColor">
+                    <span class="label slds-show_inline-block">{label.labelFrom}:&nbsp;</span>
+                    <span class="font-weight_bold slds-show_inline-block">
+                        <ul class="addressList emailuiAddressListOutput">
+                            <template for:each={fromInfo} for:item="from">
+                                <li class="addressItem" key={from.address}>
+                                    <span class="uiOutputText">{from.name} 
+                                    </span>
+                                </li>
+                            </template>
+                        </ul>
+                    </span>
+                </div>
+                <div class="toCcBccDetail lightTextColor slds-grid slds-nowrap">
+                    <div class="slds-col slds-grow-none slds-m-right_xx-small">
+                        <span class="label slds-show_inline-block">{label.labelTo}:&nbsp;</span>
+                        <ul class="addressList emailuiAddressListOutput">
+                            <template for:each={fullToInfo} for:item="to">
+                                <li key={to.address} class="addressItem">
+                                    <span class="uiOutputText">{to.address} 
+                                    </span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    <div class="detailDropdown slds-col slds-no-flex">
+                        <lightning-button-icon
+                            icon-name="utility:down"
+                            alternative-text="View sender and recipient email addresses"
+                            onclick={handleDialogOpen}
+                             variant="bare"
+                            class="slds-icon-utility-down slds-button slds-button_icon-border-filled slds-button_icon-x-small slds-var-p-around_xxx-small slds-button__icon slds-icon_container forceIcon"
+                            size="small">
+                        </lightning-button-icon>
+                        <template if:true={isDialogOpen}>
+                            <div role="dialog" class="uiPanel--default uiPanel positioned south open" style="opacity: 1; display: block; z-index: 9001; position: absolute; top: 45px; visibility: visible; transform: translateX(-55%);" aria-hidden="true">
+                                <div class="container">
+                                    <div class="panel-content scrollable">
+                                        <div class="emailuiEmailMessageDetailDropdown">
+                                            <div class="slds-popover">
+                                                <div class="slds-popover__body">
+                                                    <div class="detailDropdownPopup">
+                                                        <ul class="detailDropdownList slds-text-body_small">
+                                                            <li class="detailRow">
+                                                                <span class="label slds-show_inline-block">{label.labelFrom}:&nbsp;</span>
+                                                                <span class="addresses font-weight_bold slds-show_inline-block">
+                                                                    <ul class="addressList emailuiAddressListOutput">
+                                                                        <template for:each={fromInfo} for:item="from">
+                                                                            <li key={from.address} class="truncate addressItem">
+                                                                                <span class="truncate uiOutputText">{from.name}</span> &nbsp;&lt;<a href={from.mailto} class="emailuiFormattedEmail">{from.address}</a>&gt;
+                                                                            </li>
+                                                                        </template>
+                                                                    </ul>
+                                                                </span>
+                                                            </li>
+                                                            <li class="detailRow">
+                                                                <span class="label">{label.labelTo}:&nbsp;</span>
+                                                                <span class="addresses">
+                                                                    <ul class="addressList emailuiAddressListOutput">
+                                                                        <template for:each={fullToInfo} for:item="to">
+                                                                            <li key={to.address} class="truncate addressItem">
+                                                                                <a href={to.mailto} class="emailuiFormattedEmail">{to.address}</a>
+                                                                            </li>
+                                                                        </template>
+                                                                    </ul>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer"></div>
+                                </div>
+                                <div class="pointer" style="position: absolute; left: 179.349px; top: -10.6508px;"></div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="emailMessageBody">
+            <div class="emailuiOutputRichText">
+                <div>
+                    <div class="slds-p-around_medium">
+                       
+                            <template if:true={isVisualforce}>
+                                <iframe class="correo-frame" title="content" src={visualforceUrl}></iframe>
+                            </template>
+                            <template if:true={isLwc}>
+                                <div class="html-content" lwc:dom="manual"></div>
+                            </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </article>
+    </lightning-card>
+</template>

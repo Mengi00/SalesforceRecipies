@@ -1,0 +1,23 @@
+<template>
+  <lightning-card icon-name="standard:user" variant="Narrow">
+    <h1 slot="title" class="slds-card__header-title">Supervisor Asignado</h1>
+
+    <template if:true={isLoading}>
+      <div class="slds-var-p-around_medium">
+        <lightning-spinner
+          alternative-text="Cargando..."
+          size="small"
+        ></lightning-spinner>
+      </div>
+    </template>
+
+    <template if:false={isLoading}>
+      <div class="slds-var-p-around_medium">
+        <p class="supervisor-name slds-var-m-bottom_x-small">
+          {supervisorName}
+        </p>
+        <div class="separator-line"></div>
+      </div>
+    </template>
+  </lightning-card>
+</template>

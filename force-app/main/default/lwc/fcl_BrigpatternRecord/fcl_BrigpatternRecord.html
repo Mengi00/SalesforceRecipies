@@ -1,0 +1,96 @@
+<template>
+    <lightning-card>
+        <!-- Sección Datos Paciente -->
+        <div class="slds-section slds-is-open">
+            <h3 class="slds-section__title">
+                <button class="slds-button slds-section__title-action">
+                    <lightning-icon icon-name="utility:switch" size="x-small"
+                        class="slds-section__title-action-icon"></lightning-icon>
+                    <span class="slds-truncate" title="Datos Paciente">Datos Paciente</span>
+                </button>
+            </h3>
+            <div class="slds-section__content">
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Nombre" value={datosPaciente.nombre} data-field="nombre"
+                            data-section="paciente" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Rut Digitado" value={datosPaciente.rutDigitado} data-field="rutDigitado"
+                            data-section="paciente" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección Datos de BrightPattern -->
+        <div class="slds-section slds-is-open slds-m-top_medium">
+            <h3 class="slds-section__title">
+                <button class="slds-button slds-section__title-action">
+                    <lightning-icon icon-name="utility:switch" size="x-small"
+                        class="slds-section__title-action-icon"></lightning-icon>
+                    <span class="slds-truncate" title="Datos de BrightPattern">Datos de BrightPattern</span>
+                </button>
+            </h3>
+            <div class="slds-section__content">
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Teléfono Entrada" value={datosBrightPattern.telefonoEntrada}
+                            data-field="telefonoEntrada" data-section="brightpattern" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Tipo" value={datosBrightPattern.tipo} data-field="tipo"
+                            data-section="brightpattern" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Disposición" value={datosBrightPattern.disposicion}
+                            data-field="disposicion" data-section="brightpattern" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Calificación de Requerimiento"
+                            value={datosBrightPattern.calificacionRequerimiento} data-field="calificacionRequerimiento"
+                            data-section="brightpattern" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Identificador del objeto de llamada"
+                            value={datosBrightPattern.identificadorLlamada} data-field="identificadorLlamada"
+                            data-section="brightpattern" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Origen Llamada" value={datosBrightPattern.origenLlamada}
+                            data-field="origenLlamada" data-section="brightpattern" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Recording/Transcript" value={datosBrightPattern.recordingTranscript}
+                            data-field="recordingTranscript" data-section="brightpattern" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Servicio" value={datosBrightPattern.servicio} data-field="servicio"
+                            data-section="brightpattern" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Asignado a" value={datosBrightPattern.asignadoA} data-field="asignadoA"
+                            data-section="brightpattern" onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón de Guardar -->
+        <div class="slds-m-top_medium slds-text-align_center">
+            <lightning-button variant="brand" label="Guardar" onclick={handleSave}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

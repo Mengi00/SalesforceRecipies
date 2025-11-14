@@ -1,0 +1,122 @@
+<template>
+    <!-- Botones (filtro y exportar) -->
+       <lightning-layout horizontal-align="spread">
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-button label="Exportar Excel" onclick={handleExport} icon-name="doctype:excel" class="slds-m-left-small"></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-button label="Limpiar Filtros" onclick={clearFilters} icon-name="standard:filter" class="slds-m-left-small"></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout >
+
+  <!--  Filtros -->
+    <div class="filtros-grid">
+        <lightning-layout class="filter-bar">
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <lightning-combobox label="Año"
+                value={filters.anio}
+                options={yearsOptions}
+                onchange={handleFilterChange}
+                data-filter="anio"
+                placeholder={filters.anio}>
+            </lightning-combobox>
+        </lightning-layout-item>
+
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <c-multi-select-pick-list
+                multi-select="true"
+                onselectoption={handleMonthSelection}
+                options={monthsOptions}
+                selected-values={filters.meses}
+                label="Meses"
+                data-filter="meses"
+            >
+          </c-multi-select-pick-list>
+        </lightning-layout-item>
+
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-combobox label="Tipo Requerimiento"
+                value={filters.tipoRequerimiento}
+                options={tipoRequerimientoOptions}
+                onchange={handleFilterChange}
+                data-filter="tipoRequerimiento">
+            </lightning-combobox>
+        </lightning-layout-item>
+
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-combobox label="Estado"
+                value={filters.estado}
+                options={estadoOptions}
+                onchange={handleFilterChange}
+                data-filter="estado">
+            </lightning-combobox>
+        </lightning-layout-item>
+
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-combobox label="Gerencia"
+                value={filters.gerencia}
+                options={gerenciaOptions}
+                onchange={handleFilterChange}
+                data-filter="gerencia">
+            </lightning-combobox>
+        </lightning-layout-item>
+
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-combobox label="Unidad"
+                value={filters.unidad}
+                options={unidadOptions}
+                onchange={handleFilterChange}
+                data-filter="unidad">
+            </lightning-combobox>
+        </lightning-layout-item>
+
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-combobox label="Servicio"
+                value={filters.servicio}
+                options={servicioOptions}
+                onchange={handleFilterChange}
+                data-filter="servicio">
+            </lightning-combobox>
+        </lightning-layout-item>
+
+    </lightning-layout> 
+</div>
+
+<lightning-card lightning-card title="Casos Por Tipo de Requerimiento" icon-name="utility:chart" variant='inverse'>
+<div class="slds-m-around_medium">
+
+    <!-- Gráfico -->
+    <div class="slds chart-container">
+        <canvas lwc:dom="manual" class="chart"></canvas>
+    </div>
+    
+    <div class="slds-grid slds-grid_align-center slds-m-top_medium"></div>
+    <!-- Nota explicativa -->
+    <div class="slds-m-top_medium slds-text-body_regular">
+        <p>
+            Este gráfico muestra la cantidad de casos en una fecha particular y está divido por 3 estados (“pendiente”, “Vencido”, “Cerrado”) y se pueden seleccionar distintos filtros para ver información más detallada según requiera el usuario.
+        </p>
+      </div>
+</div>
+</lightning-card>
+
+<!--  Tabla de casos  -->
+<lightning-card>
+<template if:true={cases}>
+    <lightning-datatable
+        data={displayedCases}
+        columns={columns}
+        key-field="Id"
+        sorted-by={sortBy}
+        sorted-direction={sortDirection}
+        onsort={handleSort}>
+    </lightning-datatable>
+</template>
+<template if:true={error}>
+    <div class="slds-box slds-theme_alert-texture slds-theme_alert slds-theme_error">
+        <p>{error.body.message}</p>
+    </div>   
+</template>
+</lightning-card>
+</template>

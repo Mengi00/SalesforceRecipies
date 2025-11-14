@@ -1,0 +1,11 @@
+.filter-bar {
+    display: flex;
+    flex-wrap: nowrap; /* Mantiene los filtros en una sola línea */
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto; /* Permite hacer scroll si hay demasiados filtros */
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    width: 100%;
+}

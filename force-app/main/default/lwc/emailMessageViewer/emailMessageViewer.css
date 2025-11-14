@@ -1,0 +1,35 @@
+.correo-frame {
+    width: 100%;
+    border: none;
+}
+
+.emailuiAddressListOutput {
+    list-style: none;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-padding-start: 0;
+    display: inline;
+}
+
+.emailuiAddressListOutput .addressItem {
+    display: inline;
+}
+
+.emailuiEmailMessage .lightTextColor {
+    color: var(--slds-g-color-palette-cloud-blue-40, rgb(84, 105, 141));
+}
+
+.emailuiEmailMessage .font-weight_bold {
+    font-weight: var(--lwc-fontWeightBold, 700);
+}
+
+
+.runtime_sales_activitiesTaskDueDate {
+    color: var(--slds-g-color-neutral-base-10, #181818);
+    font-size: var(--slds-g-font-scale-neg-1, 0.75rem);
+}
+
+.detailDropdown{
+    display: block;
+    position: relative;
+}

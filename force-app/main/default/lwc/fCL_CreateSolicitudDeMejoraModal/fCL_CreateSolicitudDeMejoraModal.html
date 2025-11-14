@@ -1,0 +1,71 @@
+<template>
+  <lightning-button
+    variant="brand"
+    label="Crear Solicitud de Mejora"
+    title="Crear Solicitud de Mejora"
+    onclick={handleOpenModal}
+  >
+  </lightning-button>
+
+  <template if:true={isModalOpen}>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container">
+        <header class="slds-modal__header">
+          <button
+            class="slds-button slds-button_icon slds-modal__close"
+            title="Close"
+            onclick={handleCloseModal}
+          >
+            <lightning-icon
+              icon-name="utility:close"
+              alternative-text="close"
+              variant="inverse"
+              size="small"
+            ></lightning-icon>
+          </button>
+          <h2 class="slds-text-heading_medium slds-hyphenate">
+            Nueva Solicitud de Mejora
+          </h2>
+        </header>
+
+        <div class="slds-modal__content slds-p-around_medium">
+          <lightning-record-edit-form
+            object-api-name="Solicitud_de_Mejora__c"
+            onsubmit={handleSubmit}
+          >
+            <lightning-messages></lightning-messages>
+
+            <lightning-input-field
+              field-name="Titulo__c"
+              required
+            ></lightning-input-field>
+            <lightning-input-field
+              field-name="Categoria_de_Mejora__c"
+              required
+            ></lightning-input-field>
+            <lightning-input-field
+              field-name="Descripci_n__c"
+              required
+            ></lightning-input-field>
+            <lightning-input-field
+              field-name="Propuesta_de_Mejora__c"
+            ></lightning-input-field>
+            <lightning-input-field
+              field-name="Unidad_Responsable__c"
+            ></lightning-input-field>
+
+            <div class="slds-m-top_medium slds-text-align_right">
+              <lightning-button
+                type="submit"
+                variant="brand"
+                label="Guardar"
+                disabled={isSaving}
+              ></lightning-button>
+            </div>
+          </lightning-record-edit-form>
+        </div>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+</template>

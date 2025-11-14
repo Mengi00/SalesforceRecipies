@@ -1,0 +1,8 @@
+.chart-container {
+    position: bottom;
+    height: 300px;
+}
+.chart {
+    width: 100% !important;
+    height: 100% !important;
+}

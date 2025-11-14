@@ -1,0 +1,37 @@
+/* Estilo para el nombre del supervisor */
+.supervisor-name {
+  /* Ajusta el tamaño de fuente. Puedes probar con '1rem' o '1.1rem' */
+  font-size: 1rem;
+  /* Color de texto para que destaque un poco pero sin ser excesivo */
+  color: #5b616b;
+  /* Asegura que el texto se alinee a la izquierda */
+  text-align: left;
+}
+
+/* Estilo para la línea divisoria */
+.separator-line {
+  /* Altura de la línea */
+  height: 1px;
+  /* Color de la línea (un gris claro es común) */
+  background-color: #d8dde6;
+  /* Un poco de margen para que no esté pegada al texto */
+  margin-top: 0.5rem;
+  /* Ancho de la línea (ej. 80% para que no ocupe todo el ancho) */
+  width: 90%;
+  margin-left: 0; /* Asegura que la línea comienza a la izquierda */
+  margin-right: auto;
+}
+
+/* Ajustes para el título de la tarjeta para que se vea más limpio */
+.slds-card__header-title {
+  font-size: 1.1rem; /* Un poco más grande que el texto normal */
+  color: #000000;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Espacio para el icono en el título de la tarjeta */
+.slds-card__header-title lightning-icon {
+  margin-right: 0.5rem; /* Espacio entre el icono y el texto del título */
+}

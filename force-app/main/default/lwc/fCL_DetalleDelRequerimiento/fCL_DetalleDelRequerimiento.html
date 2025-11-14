@@ -1,0 +1,172 @@
+<template>
+  <div class="slds-var-p-around_medium">
+    <template if:true={showError}>
+      <div class="slds-notify slds-notify_alert slds-theme_error">
+        <span class="slds-assistive-text">Error</span>
+        <span>{errorMsg}</span>
+      </div>
+    </template>
+
+    <template if:false={requerimiento.data}>
+      <div class="slds-var-p-around_medium slds-text-align_center">
+        <lightning-spinner
+          alternative-text="Cargando detalles..."
+          size="medium"
+        ></lightning-spinner>
+        <p class="slds-text-heading_small slds-var-m-top_small">
+          Cargando detalles del requerimiento...
+        </p>
+      </div>
+    </template>
+
+    <template if:true={requerimiento.data}>
+      <lightning-card
+        title={requerimiento.data.Titulo__c}
+        icon-name="standard:task"
+        class="slds-var-m-bottom_large"
+      >
+        <h2
+          slot="title"
+          class="slds-text-heading_large slds-text-color_default slds-var-p-horizontal_small"
+        >
+          <lightning-icon
+            icon-name="standard:task"
+            size="small"
+          ></lightning-icon>
+          <span class="slds-var-p-left_small"
+            >{requerimiento.data.Name}: {requerimiento.data.Titulo__c}</span
+          >
+        </h2>
+        <div class="slds-var-p-around_medium">
+          <div class="slds-box slds-var-m-bottom_medium">
+            <h3 class="slds-text-heading_small slds-var-m-bottom_x-small">
+              <lightning-icon
+                icon-name="utility:description"
+                size="x-small"
+              ></lightning-icon>
+              <span class="slds-var-p-left_xx-small"
+                >Descripción del Requerimiento</span
+              >
+            </h3>
+            <lightning-formatted-rich-text
+              value={requerimiento.data.Descripcion_requerimiento__c}
+              class="slds-var-p-left_medium slds-var-m-bottom_small"
+            ></lightning-formatted-rich-text>
+          </div>
+
+          <div class="slds-grid slds-wrap slds-var-m-top_large">
+            <div
+              class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-var-p-around_x-small"
+            >
+              <lightning-icon
+                icon-name="standard:category"
+                size="x-small"
+              ></lightning-icon>
+              <p
+                class="slds-text-title_bold slds-var-p-left_xx-small slds-show_inline-block"
+              >
+                Cetegoría de Mejora
+              </p>
+              <p class="slds-var-p-left_large">
+                {requerimiento.data.Categoria_de_Mejora__c}
+              </p>
+            </div>
+            <div
+              class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-var-p-around_x-small"
+            >
+              <lightning-icon
+                icon-name="utility:priority"
+                size="x-small"
+              ></lightning-icon>
+              <p
+                class="slds-text-title_bold slds-var-p-left_xx-small slds-show_inline-block"
+              >
+                Prioridad
+              </p>
+              <p class="slds-var-p-left_large">
+                {requerimiento.data.Prioridad__c}
+              </p>
+            </div>
+            <div
+              class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-var-p-around_x-small"
+            >
+              <lightning-icon
+                icon-name="utility:groups"
+                size="x-small"
+              ></lightning-icon>
+              <p
+                class="slds-text-title_bold slds-var-p-left_xx-small slds-show_inline-block"
+              >
+                Unidad Responsable
+              </p>
+              <p class="slds-var-p-left_large">{unidadResponsableName}</p>
+            </div>
+            <div
+              class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-var-p-around_x-small"
+            >
+              <lightning-icon
+                icon-name="standard:order_item"
+                size="x-small"
+              ></lightning-icon>
+              <p
+                class="slds-text-title_bold slds-var-p-left_xx-small slds-show_inline-block"
+              >
+                Solicitud Relacionada
+              </p>
+              <p class="slds-var-p-left_large">{solicitudName}</p>
+            </div>
+          </div>
+
+          <div class="slds-grid slds-wrap slds-var-m-top_large slds-box">
+            <div
+              class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-var-p-around_x-small"
+            >
+              <lightning-icon
+                icon-name="utility:date_time"
+                size="x-small"
+              ></lightning-icon>
+              <p
+                class="slds-text-title_bold slds-var-p-left_xx-small slds-show_inline-block"
+              >
+                Fecha de Derivación
+              </p>
+              <lightning-formatted-date-time
+                value={requerimiento.data.Fecha_de_Derivacion__c}
+                year="numeric"
+                month="numeric"
+                day="numeric"
+                hour="2-digit"
+                minute="2-digit"
+                class="slds-var-p-left_large"
+              >
+              </lightning-formatted-date-time>
+            </div>
+            <div
+              class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-var-p-around_x-small"
+            >
+              <lightning-icon
+                icon-name="utility:clock"
+                size="x-small"
+              ></lightning-icon>
+              <p
+                class="slds-text-title_bold slds-var-p-left_xx-small slds-show_inline-block"
+              >
+                Fecha de Revisión
+              </p>
+              <lightning-formatted-date-time
+                value={requerimiento.data.Fecha_de_Revision__c}
+                year="numeric"
+                month="numeric"
+                day="numeric"
+                hour="2-digit"
+                minute="2-digit"
+                class="slds-var-p-left_large"
+              >
+              </lightning-formatted-date-time>
+            </div>
+          </div>
+        </div>
+      </lightning-card>
+    </template>
+  </div>
+</template>

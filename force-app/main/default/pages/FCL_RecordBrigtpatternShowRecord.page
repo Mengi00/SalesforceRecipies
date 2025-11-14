@@ -1,0 +1,4 @@
+<apex:page standardController="Task" showHeader="false" sidebar="false" standardStylesheets="false">
+    <apex:iframe src="{!Task.BrightPattern__SPRecordingOrTranscriptURL__c}" scrolling="true" id="iframeUrl" frameborder="0" width="100%"
+        height="600px" />
+</apex:page>
