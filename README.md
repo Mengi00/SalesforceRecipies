@@ -2,7 +2,7 @@
 
 # Documentación de Componentes - Salesforce
 
-Este documento describe los componentes Lightning Web Components (LWC) y las clases Apex del proyecto Salesforce FALP.
+Este documento describe los componentes Lightning Web Components (LWC) y las clases Apex del proyecto Salesforce .
 
 ---
 
@@ -492,7 +492,7 @@ Los siguientes componentes son formularios de evaluación de salud mental en ing
   - `E_FolioAgregado`: Detalle de folio procesado
 - **Funcionalidades:**
   - Upsert de folios usando campo externo `Id_Externo__c`
-  - Crea relaciones `FALP_RelacionPresupuestoFolio__c` entre folios y presupuestos
+  - Crea relaciones `_RelacionPresupuestoFolio__c` entre folios y presupuestos
   - Actualiza casos relacionados: cambia estado de "Agendado, pendiente folio" a "Generado"
   - Manejo de errores detallado por registro
   - Retorna estado de transmisión (OK/NOK) por cada folio
@@ -864,8 +864,8 @@ Los siguientes controladores gestionan funcionalidades de autenticación y regis
 
 ### Handlers y Triggers
 
-#### **FALP_CaseEmailHandler**
-- **Ubicación:** `force-app/main/default/classes/FALP_CaseEmailHandler.cls`
+#### **_CaseEmailHandler**
+- **Ubicación:** `force-app/main/default/classes/_CaseEmailHandler.cls`
 - **Tipo:** Email Handler
 - **Descripción:** Procesa emails entrantes para crear/actualizar casos.
 - **Funcionalidades:**
@@ -883,24 +883,24 @@ Los siguientes controladores gestionan funcionalidades de autenticación y regis
 
 ### Migración y Batch Jobs
 
-#### **falp_migracionCase_CTRL**
-- **Ubicación:** `force-app/main/default/classes/falp_migracionCase_CTRL.cls`
+#### **_migracionCase_CTRL**
+- **Ubicación:** `force-app/main/default/classes/_migracionCase_CTRL.cls`
 - **Tipo:** Controller
 - **Descripción:** Controlador para migración de casos.
 - **Funcionalidades:**
   - UI para migración
   - Configuración de parámetros
 
-#### **falp_migracionCase_bch**
-- **Ubicación:** `force-app/main/default/classes/falp_migracionCase_bch.cls`
+#### **_migracionCase_bch**
+- **Ubicación:** `force-app/main/default/classes/_migracionCase_bch.cls`
 - **Tipo:** Batch Apex
 - **Descripción:** Batch para migración de casos.
 - **Funcionalidades:**
   - Migración masiva de casos
   - Transformación de datos
 
-#### **falp_migracionCase_sch**
-- **Ubicación:** `force-app/main/default/classes/falp_migracionCase_sch.cls`
+#### **_migracionCase_sch**
+- **Ubicación:** `force-app/main/default/classes/_migracionCase_sch.cls`
 - **Tipo:** Schedulable
 - **Descripción:** Scheduler para migración de casos.
 - **Funcionalidades:**
@@ -1013,7 +1013,7 @@ force-app/main/default/
 - **Tests:** `*Test`, `*_Test` (ej. `CasosListControllerTest`)
 
 ### LWC
-- **Prefijo:** Muchos componentes usan prefijo `fCL_` o `fcl_` (FALP Chile)
+- **Prefijo:** Muchos componentes usan prefijo `fCL_` o `fcl_` ( Chile)
 - **CamelCase:** Nombres descriptivos en camelCase
 - **Sufijos funcionales:** `*Modal`, `*List`, `*Chart`, etc.
 
@@ -1068,8 +1068,8 @@ force-app/main/default/
 - `Requerimiento_de_Mejora__c`
 - `Participante_de_Encuesta__c`
 - `Servicios_en_Caso__c`
-- `FALP_Folio__c`
-- `FALP_RelacionPresupuestoFolio__c`
+- `_Folio__c`
+- `_RelacionPresupuestoFolio__c`
 
 ---
 
