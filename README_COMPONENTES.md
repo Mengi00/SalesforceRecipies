@@ -1,4 +1,6 @@
-# Documentación de Componentes - Salesforce FALP
+# Hola, dejo una guia con todo el contenido desarrollado por WND para salesforce, todas las recetas y componentes refentes a stack de healthcare para uso libre, ¡buena caza!
+
+# Documentación de Componentes - Salesforce
 
 Este documento describe los componentes Lightning Web Components (LWC) y las clases Apex del proyecto Salesforce FALP.
 
@@ -1085,7 +1087,8 @@ force-app/main/default/
 
 ## Autor
 
-Proyecto Salesforce - FALP (Fundación Arturo López Pérez)
+Giorgio Meniconi y Teresa Moron 
+Devs Fullstack Salesforce - Whynotdigital 2025
 
 ---
 
